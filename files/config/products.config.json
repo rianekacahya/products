@@ -1,0 +1,24 @@
+{
+  "service_name": "products",
+  "rest": {
+    "port": 8080,
+    "read_timeout": 5,
+    "write_timeout": 5,
+    "idle_timeout": 5
+  },
+  "postgres": {
+    "read": {
+      "dsn": "postgres://root:basic@127.0.0.1:5432/onboarding_dev?sslmode=disable",
+      "max_open": 100,
+      "max_idle": 50,
+      "timeout": 3600
+    },
+    "write": {
+      "dsn": "postgres://root:basic@127.0.0.1:5432/onboarding_dev?sslmode=disable",
+      "max_open": 100,
+      "max_idle": 50,
+      "timeout": 3600
+    }
+  },
+  "debug": false
+}
