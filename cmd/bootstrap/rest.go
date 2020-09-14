@@ -23,9 +23,6 @@ var (
 			// init root context
 			ctx := context.Background()
 
-			// register service
-			RegistrationService()
-
 			// init database
 			dbread := InitPostgresRead()
 			dbwrite := InitPostgresWrite()
@@ -61,6 +58,12 @@ var (
 
 			// watching config changes
 			go reconf.Watch(ctx)
+
+			// register service
+			RegistrationService()
+
+			// deregister service
+			defer DeregistrationService()
 
 			// shutdown server gracefully
 			echoserver.Shutdown(ctx)

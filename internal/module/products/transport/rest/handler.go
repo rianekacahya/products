@@ -18,7 +18,7 @@ func NewHandler(echo *echo.Group, usecase usecase.Usecase) {
 }
 
 func (r *rest) list(c echo.Context) error {
-	val, err := r.usecase.Check()
+	val, err := r.usecase.Check(c.Request().Context(), c.QueryParam("prefix"))
 	if err != nil {
 		return response.Error(c, err)
 	}

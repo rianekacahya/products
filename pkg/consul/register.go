@@ -39,3 +39,11 @@ func (sr *ServiceRegister) Register() error {
 
 	return nil
 }
+
+func Deregister(serviceID string) error {
+	if err := client().Agent().ServiceDeregister(serviceID); err != nil {
+		return err
+	}
+
+	return nil
+}

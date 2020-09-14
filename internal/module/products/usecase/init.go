@@ -1,12 +1,13 @@
 package usecase
 
 import (
+	"context"
 	"database/sql"
 	"service/internal/module/products/repository"
 )
 
 type products struct {
-	repository Repository
+	repository repository.Repository
 	dependency dependency
 }
 
@@ -19,7 +20,5 @@ func Initialize(dbread, dbwrite *sql.DB) *products {
 }
 
 type Usecase interface {
-	Check() (string, error)
+	Check(context.Context, string) (string, error)
 }
-
-type Repository interface {}

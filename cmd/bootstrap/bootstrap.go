@@ -21,8 +21,13 @@ func RegistrationService(){
 	service.Checks.Timeout = "5s"
 	service.Checks.DeregisterCriticalServiceAfter = "5s"
 
-	err := service.Register()
-	if err != nil {
+	if err := service.Register(); err != nil {
+		log.Fatalf("got an error while registration service to consul, error: %s", err)
+	}
+}
+
+func DeregistrationService(){
+	if err := consul.Deregister(fmt.Sprintf("%v-%v", reconf.Config().GetString("service_name"), startedAt.Unix())); err != nil {
 		log.Fatalf("got an error while registration service to consul, error: %s", err)
 	}
 }
