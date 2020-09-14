@@ -29,10 +29,10 @@ func Config() *viper.Viper {
 	return configuration
 }
 
-func Watch(ctx context.Context){
+func Watch(ctx context.Context, delay int){
 	for {
 		// delay after each request
-		time.Sleep(time.Second * 5)
+		time.Sleep(time.Second * time.Duration(delay))
 
 		select {
 		case <-ctx.Done():

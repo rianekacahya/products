@@ -57,7 +57,7 @@ var (
 			)
 
 			// watching config changes
-			go reconf.Watch(ctx)
+			go reconf.Watch(ctx, reconf.Config().GetInt("sync_config"))
 
 			// register service
 			RegistrationService()

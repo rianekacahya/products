@@ -1,4 +1,6 @@
 {
+  "debug": false,
+  "sync_config": 5,
   "service_name": "products",
   "rest": {
     "port": 8080,
@@ -19,6 +21,5 @@
       "max_idle": 50,
       "timeout": 3600
     }
-  },
-  "debug": false
+  }
 }
